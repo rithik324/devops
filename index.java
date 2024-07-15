@@ -904,6 +904,23 @@ awscli
 -> curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 -> unzip awscliv2.zip
 -> sudo ./aws/install
+ //rithik_changes
+[ provider "aws" {
+  region     = "ap-southeast-1"
+  access_key = ""
+  secret_key = ""
+}
+
+resource "aws_instance" "web-server" {
+  ami           = "ami-0e97ea97a2f374e3d"
+  instance_type = "t2.micro"
+  key_name      = "terra"
+
+  tags= {
+    name = "terra-server"
+  }
+
+}]//rithik changes
 terraform
 -> yum install -y yum-utils
 -> yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
